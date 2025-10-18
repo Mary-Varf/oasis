@@ -63,7 +63,7 @@ const Empty = styled.p`
 
 const TableContext = createContext();
 
-const Table = ({ columns, children }) => {
+const Table = ({ columns = [], children }) => {
   return (
     <TableContext.Provider value={{ columns }}>
       <StyledTable role="row">{children}</StyledTable>
