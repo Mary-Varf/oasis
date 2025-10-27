@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+import { useSearchParams } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 const StyledFilter = styled.div`
@@ -33,3 +35,40 @@ const FilterButton = styled.button`
     color: var(--color-brand-50);
   }
 `;
+
+const Filter = ({ filterField, options }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentFilter = searchParams.get(filterField) || options.at(0).value;
+
+  const handleClick = (value) => {
+    searchParams.set(filterField, value);
+    setSearchParams(searchParams);
+  };
+
+  return (
+    <StyledFilter>
+      {options?.map((option) => {
+        return (
+          <FilterButton
+            key={option.value}
+            onClick={() => handleClick(option.value)}
+            active={currentFilter === option.value}
+            disabled={currentFilter === option.value}
+          >
+            {option.label}
+          </FilterButton>
+        );
+      })}
+    </StyledFilter>
+  );
+};
+Filter.propTypes = {
+  filterField: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+export default Filter;
