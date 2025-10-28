@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+/*eslint-disable */
 const StyledDataItem = styled.div`
   display: flex;
   align-items: center;

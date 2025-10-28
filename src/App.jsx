@@ -12,6 +12,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 import AppLayout from "./ui/AppLayout";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
+import Booking from "./pages/Booking";
 
 const queryClient = new QueryClient();
 console.log(queryClient);
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/users" element={<Users />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/bookings" element={<Bookings />} />
+            <Route path="/bookings/:bookingId" element={<Booking />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />

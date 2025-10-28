@@ -11,7 +11,7 @@ import DataItem from "../../ui/DataItem";
 import { Flag } from "../../ui/Flag";
 
 import { formatDistanceFromNow, formatCurrency } from "../../utils/helpers";
-
+/*eslint-disable */
 const StyledBookingDataBox = styled.section`
   /* Box */
   background-color: var(--color-grey-0);
@@ -114,7 +114,7 @@ function BookingDataBox({ booking }) {
     totalPrice,
     hasBreakfast,
     observations,
-    isPaid,
+    ispaid: isPaid,
     guests: { fullName: guestName, email, country, countryFlag, nationalID },
     cabins: { name: cabinName },
   } = booking;
